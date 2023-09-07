@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.vercel-like:before {
+  content: '';
+  position: absolute;
+  top: 0.7rem;
+  left: 0.6rem;
+  bottom: 0.7rem;
+  right: 0.6rem;
+  background-image: linear-gradient(
+    165deg,
+    hsl(0, 84%, 61%),
+    hsl(47, 95%, 57%)
+  );
+  filter: blur(35px);
+}
