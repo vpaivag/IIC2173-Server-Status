@@ -85,7 +85,12 @@ export default function Index() {
           <ElementStatus
             key={element.id}
             pings={element._count.messages}
-            status={element.status}
+            status={
+              navigation.state === 'submitting' ||
+              navigation.state === 'loading'
+                ? 'checking'
+                : element.status
+            }
             lastChecked={element.updatedAt}
             elementName={element.type}
             description={element.name}
