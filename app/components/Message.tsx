@@ -39,8 +39,6 @@ function MessageCard({ content }: Message) {
     data.stocks = JSON.parse(data.stocks);
   }
 
-  console.log(data);
-
   return (
     <div
       className="flex items-center justify-between w-full mt-2"
