@@ -9,6 +9,12 @@ type ElementStatusProps = {
   lastChecked: string;
   pings: number;
   isTesteable?: boolean;
+  lastMessage: {
+    id: number;
+    content: string;
+    serviceId: number;
+    createdAt: string;
+  };
 };
 
 function ElementStatus({
@@ -18,6 +24,7 @@ function ElementStatus({
   lastChecked,
   pings,
   isTesteable,
+  lastMessage,
 }: ElementStatusProps) {
   const [isMenu, setIsMenu] = useState(false);
 
@@ -29,7 +36,7 @@ function ElementStatus({
     // <div className=" bg-gradient-to-r from-cyan-300 to-sky-700 p-[1px] w-[90%] md:w-3/5 mx-auto rounded-lg transition-all">
     <button
       onClick={handleClick}
-      className="bg-black flex flex-col gap-3 items-center justify-between  px-5 py-3 border rounded-lg border-slate-600 w-[95%] md:w-3/5 mx-auto hover:border-slate-300 duration-300 transition-colors ease-in-out relative"
+      className="group bg-black flex flex-col gap-3 items-center justify-between  px-5 py-3 border rounded-lg border-slate-600 w-[95%] md:w-3/5 mx-auto hover:border-slate-300 duration-300 transition-colors ease-in-out relative"
     >
       <div className="absolute left-0 top-0 bg-slate-800 w-full h-full blur-xl -z-10"></div>
       <div className="flex items-center justify-between w-full">
@@ -49,6 +56,7 @@ function ElementStatus({
           lastChecked={lastChecked}
           pings={pings}
           isTesteable={isTesteable}
+          lastMessage={lastMessage}
         />
       )}
     </button>

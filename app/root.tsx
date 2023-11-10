@@ -75,7 +75,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body className="bg-black text-white">
+      <body className="bg-black text-white no-scrollbar">
         {children}
         <Scripts />
         <LiveReload />

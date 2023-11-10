@@ -95,6 +95,7 @@ export default function Index() {
             elementName={element.type}
             description={element.name}
             isTesteable={element.isTesteable}
+            lastMessage={element.messages[element.messages.length - 1]}
           />
         ))}
       </div>
@@ -127,6 +128,12 @@ export function ErrorBoundary() {
         elementName={'IIC2173 Server'}
         description={'Server is offline'}
         isTesteable={false}
+        lastMessage={{
+          id: 0,
+          content: '',
+          serviceId: 0,
+          createdAt: new Date().toISOString(),
+        }}
       />
     </main>
   );
