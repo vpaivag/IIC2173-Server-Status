@@ -13,3 +13,24 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: theme('backgroundColor.black');
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: theme('backgroundColor.slate.800');
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: theme('backgroundColor.slate.700');
+}
