@@ -56,14 +56,20 @@ function StatusInfo({
           {isTesteable ? (
             <></>
           ) : (
-            <>
-              Last message received at{' '}
-              <span className="font-bold">
-                {new Date(lastMessage?.createdAt).toLocaleTimeString('es-CL') +
-                  ' ' +
-                  new Date(lastMessage?.createdAt).toLocaleDateString('es-CL')}
-              </span>
-            </>
+            lastMessage?.createdAt && (
+              <>
+                Last message received at{' '}
+                <span className="font-bold">
+                  {new Date(lastMessage?.createdAt).toLocaleTimeString(
+                    'es-CL'
+                  ) +
+                    ' ' +
+                    new Date(lastMessage?.createdAt).toLocaleDateString(
+                      'es-CL'
+                    )}
+                </span>
+              </>
+            )
           )}
         </p>
       </div>
@@ -71,15 +77,18 @@ function StatusInfo({
         {isTesteable ? (
           <></>
         ) : (
-          <>
-            <button
-              type="button"
-              onClick={handleClick}
-              className="text-slate-400 border border-slate-400 px-3 py-1 rounded-lg hover:bg-white hover:text-black group-hover:border-white transition-all duration-300 ease-in-out mt-2"
-            >
-              {!isMenu ? 'See last message' : 'Hide last message'}
-            </button>
-          </>
+          lastMessage?.createdAt && (
+            <>
+              <button
+                type="button"
+                onClick={handleClick}
+                disabled={!lastMessage?.content}
+                className="disabled:bg-slate-500 disabled:hover:text-slate-400 text-slate-400 border border-slate-400 px-3 py-1 rounded-lg hover:bg-white hover:text-black group-hover:border-white transition-all duration-300 ease-in-out mt-2"
+              >
+                {!isMenu ? 'See last message' : 'Hide last message'}
+              </button>
+            </>
+          )
         )}
       </div>
       {isMenu ? <MessageCard content={lastMessage.content} /> : <></>}
